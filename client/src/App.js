@@ -20,9 +20,9 @@ const App = props => {
     <Navbar/>
     <Switch>
       <Scroll>
-        {/* <Route exact path = "/" render={routerProps =>  !token ? <Auth {...routerProps} {...props}/> : <Redirect to="/"/>} /> */}
         <Route path = "/tools" render={routerProps => <Tools {...routerProps} {...props}/>}/>
-        <Route path = "/tabs" render={routerProps => !token ? <Auth {...routerProps} {...props}/> : <Redirect to="/tabs"/>}/>
+        <Route path = "/auth" render={routerProps => !token ? <Auth {...routerProps} {...props}/> : <Redirect to="/tabs"/>}/>
+        <Route path = "/tabs" render={routerProps => token ? <Tabs {...routerProps} {...props}/> : <Redirect to="/auth"/>}/>
         <Route path = "/credits" render={routerProps => <Credits {...routerProps} {...props}/>}/>
       </Scroll>
     </Switch>

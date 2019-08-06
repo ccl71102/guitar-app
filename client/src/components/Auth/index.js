@@ -54,7 +54,7 @@ class Auth extends Component {
                         handleSubmit={this.handleSignup}
                         btnText="Sign Up"
                     />
-                    <button onClick={this.toggler}>Login</button>
+                    <p onClick={this.toggler}>Have an account? Click here to login instead.</p>
                 </>
                 :
                 <>
@@ -65,7 +65,7 @@ class Auth extends Component {
                         handleSubmit={this.handleLogin}
                         btnText="Login"
                     />
-                    <button onClick={this.toggler}>Sign Up</button>
+                    <p onClick={this.toggler}>New user? Click here to create an account.</p>
                 </>}
             </div>
         )

@@ -17,12 +17,8 @@ const Metronome = props => {
         </select>
         <p>BPM: </p>
         <input onChange={props.handleChange} readOnly type="number" name="bpm" value={bpm} min="1" max="220"/>
-        <button onClick={() => changeBPM(1)}>
-            <FontAwesomeIcon icon={faPlusCircle}/>
-        </button>
-        <button onClick={() => changeBPM(-1)}>
-            <FontAwesomeIcon icon={faMinusCircle}/>
-        </button>
+        <FontAwesomeIcon onClick={() => changeBPM(1)} icon={faPlusCircle}/>
+        <FontAwesomeIcon onClick={() => changeBPM(-1)} icon={faMinusCircle}/>
         {!isPlaying ? <button onClick={playMetronome}>Play</button> : <button onClick={stopMetronome}>Stop</button>}
     </div>
     );

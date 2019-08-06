@@ -42,6 +42,11 @@ const Credits = () => {
                     <a href="https://freesound.org/s/112491/">Hi Hat</a> by <a href="https://freesound.org/people/cdiupe/">"cdiupe"</a>
                 </p>
             </div>
+            <div>
+                <p>
+                    <a href="https://unsplash.com/photos/1Pzhr6XPl6k">Background</a> by <a href="https://unsplash.com/@derekstory">Derek Story</a>
+                </p>
+            </div>
         </div>
     )
 }

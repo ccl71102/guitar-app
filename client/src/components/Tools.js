@@ -20,8 +20,6 @@ import E4 from "../audio/guitar/E4.mp3";
 import FS1 from "../audio/guitar/FS1.mp3";
 import G3 from "../audio/guitar/G3.mp3";
 
-//itsof08419
-
 class Tools extends Component {
 
     constructor(){
@@ -49,7 +47,7 @@ class Tools extends Component {
 
         this.setState({
             [name]: value
-        }, () => this.saveToLocalStorage())
+        }, () => this.saveToLocalStorage());
     }
 
     changeBPM = value => {
@@ -58,7 +56,7 @@ class Tools extends Component {
 
         this.setState({
            bpm: this.state.bpm + value
-        }, () => this.saveToLocalStorage())
+        }, () => this.saveToLocalStorage());
     }
 
     playString(noteName){
@@ -105,9 +103,7 @@ class Tools extends Component {
         }
 
         try{
-
-        note.play();
-
+            note.play();
         }
         catch(e){
             console.log("Note not found");
@@ -118,21 +114,16 @@ class Tools extends Component {
 
         this.setState({
             isPlaying: true
-        })
+        });
 
         if(this.state.metronome === "Standard"){
 
             let metronome = new Audio(metronomePath);
-
             let tempo = Math.floor(1000 / ((this.state.bpm) / 60));
-
-            console.log(this.state.bpm)
-            console.log(tempo);
 
             this.intervalMetronome = setInterval(() => {
                 metronome.play();
-            }, tempo)
-
+            }, tempo);
         }
 
         if(this.state.metronome === "Blast Beats"){
@@ -144,20 +135,23 @@ class Tools extends Component {
                 snare = new Audio(snareShortBlastBeatPath);
             }
 
-            let tempoFirstBeat = Math.floor(1000 / ((this.state.bpm) / 60))/2;
-            let tempoSecondBeat = tempoFirstBeat;
+            let tempo = Math.floor(1000 / ((this.state.bpm) / 60))/2;
+
+            console.log(tempo)
 
             this.intervalBasicBeatKickHiHat = setInterval(() => {
                 kick.play();
-            }, tempoFirstBeat);
+            }, tempo);
 
-            this.intervalBlastBeatSnare = setInterval(() => {
+            setTimeout(() => this.intervalBlastBeatSnare = setInterval(() => {
                 snare.play();
-            }, tempoSecondBeat);
+            }, tempo), tempo/2);
+
+            
+            
         }
 
         if(this.state.metronome === "Basic Beat"){
-
 
             let kick = new Audio(kickMidPath);
             let snare = new Audio(snareMidPath);
@@ -169,10 +163,6 @@ class Tools extends Component {
 
             let tempoFirstBeat = Math.floor(1000 / ((this.state.bpm) / 60));
             let tempoSecondBeat = tempoFirstBeat * 2;
-
-
-            console.log(this.state.bpm)
-            console.log(tempoFirstBeat);
 
             this.intervalBasicBeatKickHiHat = setInterval(() => {
                 kick.play();
@@ -195,11 +185,7 @@ class Tools extends Component {
             clearInterval(this.intervalBasicBeatKickHiHat);
             clearInterval(this.intervalBasicBeatSnareHiHat);
             clearInterval(this.intervalBlastBeatSnare);
-        })
-
-        
-
-        ///clearInterval(function)
+        });
     }
 
    render() {
@@ -221,7 +207,7 @@ class Tools extends Component {
                 stopMetronome={this.stopMetronome}
             />
         </div>
-    )
+    );
    }
 }
 

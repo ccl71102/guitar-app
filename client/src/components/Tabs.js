@@ -1,9 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import { withUser } from "../context/UserProvider.js";
+import TabList from "./tabComponents/TabList.js";
 
-const Tabs = () => {
-    return (
-        <div></div>
-    )
+class Tabs extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            title: "",
+            artist: "",
+            tabUrl: "",
+            _tabId: "",
+            status: "",
+            tabMenu: "Search"
+        };
+    }
+
+    logout = () => {
+        this.props.logout();
+    }
+
+    render(){
+        return(
+        <div>
+            <button onClick={this.logout}>Logout</button>
+        </div>);
+    }
 }
 
-export default Tabs;
+export default withUser(Tabs);

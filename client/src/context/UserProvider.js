@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
 const UserContext = React.createContext();
@@ -8,7 +8,7 @@ class UserProvider extends Component {
         super();
         this.state = {
             user: JSON.parse(localStorage.getItem("user")) || {},
-            token: JSON.parse(localStorage.getItem("token")) || ""
+            token: localStorage.getItem("token") || ""
         }
     }
 
@@ -58,13 +58,13 @@ class UserProvider extends Component {
             <UserContext.Provider value={{
                 ...this.state,
                 signup: this.signup,
-                login: this.login
+                login: this.login,
+                logout: this.logout
             }}>
                 {this.props.children}
             </UserContext.Provider>
-        )
+        );
     }
-
 }
 
 export const withUser = Component => props => (

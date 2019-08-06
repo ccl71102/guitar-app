@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/guitardb"
 //creates req.user
 app.use("/api", expressJwt({secret: process.env.SECRET}));
 app.use("/auth", require("./routes/authRouter.js"));
-app.use("/tab", require("./routes/tabRouter.js"));
+app.use("/tabs", require("./routes/tabRouter.js"));
 
 app.use((err, req, res, next) => {
     console.log(err);
