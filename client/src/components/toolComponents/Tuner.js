@@ -75,7 +75,7 @@ const Tuner = props => {
     }
 
     return(
-    <div>
+    <div className="tuner-container">
        <p>Tuning</p>
        <select onChange={handleChange} name="tuning" defaultValue={tuning}>
             <option value="E Standard">E Standard</option>

@@ -20,8 +20,13 @@ const tabSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ["new", "working", "done"]
+        enum: ["new", "working", "done"],
         default: "new"
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "user",
+        required: true
     }
 });
 

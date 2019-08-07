@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import Tuner from "./toolComponents/Tuner.js";
-import Metronome from "./toolComponents/Metronome.js";
-import metronomePath from "../audio/metronome/metronome.mp3";
-import kickMidPath from "../audio/drums/bassdrumhihat-mid.mp3";
-import kickShortPath from "../audio/drums/bassdrumhihat-short.mp3";
-import snareMidPath from "../audio/drums/snarehihat-mid.mp3";
-import snareShortPath from "../audio/drums/snarehihat-short.mp3";
-import snareShortBlastBeatPath from "../audio/drums/snare-short.mp3"
-import snareMidBlastBeatPath from "../audio/drums/snare-mid.mp3"
-import A1 from "../audio/guitar/A1.mp3";
-import A2 from "../audio/guitar/A2.mp3";
-import B1 from "../audio/guitar/B1.mp3";
-import B2 from "../audio/guitar/B2.mp3";
-import B3 from "../audio/guitar/B3.mp3";
-import D2 from "../audio/guitar/D2.mp3";
-import D3 from "../audio/guitar/D3.mp3";
-import E2 from "../audio/guitar/E2.mp3";
-import E4 from "../audio/guitar/E4.mp3";
-import FS1 from "../audio/guitar/FS1.mp3";
-import G3 from "../audio/guitar/G3.mp3";
+import Tuner from "./Tuner.js";
+import Metronome from "./Metronome.js";
+import metronomePath from "../../audio/metronome/metronome.mp3";
+import kickMidPath from "../../audio/drums/bassdrumhihat-mid.mp3";
+import kickShortPath from "../../audio/drums/bassdrumhihat-short.mp3";
+import snareMidPath from "../../audio/drums/snarehihat-mid.mp3";
+import snareShortPath from "../../audio/drums/snarehihat-short.mp3";
+import snareShortBlastBeatPath from "../../audio/drums/snare-short.mp3"
+import snareMidBlastBeatPath from "../../audio/drums/snare-mid.mp3"
+import A1 from "../../audio/guitar/A1.mp3";
+import A2 from "../../audio/guitar/A2.mp3";
+import B1 from "../../audio/guitar/B1.mp3";
+import B2 from "../../audio/guitar/B2.mp3";
+import B3 from "../../audio/guitar/B3.mp3";
+import D2 from "../../audio/guitar/D2.mp3";
+import D3 from "../../audio/guitar/D3.mp3";
+import E2 from "../../audio/guitar/E2.mp3";
+import E4 from "../../audio/guitar/E4.mp3";
+import FS1 from "../../audio/guitar/FS1.mp3";
+import G3 from "../../audio/guitar/G3.mp3";
 
 class Tools extends Component {
 
@@ -191,7 +191,7 @@ class Tools extends Component {
    render() {
 
     return (
-        <div>
+        <div className="tools-container">
             <Tuner
                 {...this.props} 
                 {...this.state} 

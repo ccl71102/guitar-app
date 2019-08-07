@@ -16,6 +16,10 @@ Creator: Derek Murphy "robbiesurp" (https://derekmurphy.com/)
 Hi Hat: https://freesound.org/s/112491/
 Creator: "cdiupe" (https://freesound.org/people/cdiupe/)
 
+https://unsplash.com/photos/9zxZeisipcE
+
+Markus Spiske: https://unsplash.com/@markusspiske
+
 */
 
 const Credits = () => {
@@ -45,6 +49,11 @@ const Credits = () => {
             <div>
                 <p>
                     <a href="https://unsplash.com/photos/1Pzhr6XPl6k">Background</a> by <a href="https://unsplash.com/@derekstory">Derek Story</a>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <span>Guitar</span> by <a href="https://colonlopezcarlos.surge.sh/">Carlos Colon</a>
                 </p>
             </div>
         </div>
