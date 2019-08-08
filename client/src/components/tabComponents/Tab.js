@@ -4,7 +4,6 @@ const Tab = props => {
 
     const {_id, title, artist, _tabId, tabUrl, status, setWorking, deleteTab, setDone} = props;
 
-
     const getButtons = status => {
         switch(status) {
             case "new": 

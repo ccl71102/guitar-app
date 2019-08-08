@@ -26,13 +26,13 @@ class Tabs extends Component {
     }
 
     componentDidMount(){
-       tokenAxios.get(`/api/tabs?_id=${this.props.user._id}`)
-        .then(res => {
-            this.setState({tabs: res.data});
-        })
-        .catch(err => {
-            console.log(err);
-        });
+    //    tokenAxios.get(`/api/tabs?_id=${this.props.user._id}`)
+    //     .then(res => {
+    //         this.setState({tabs: res.data});
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     });
     }
 
     setWorking = tab => {
@@ -111,6 +111,7 @@ class Tabs extends Component {
         return(
         <div>
             <div>
+                <p>Welcome, {JSON.parse(localStorage.getItem("user")).username}</p>
                 <button onClick={this.logout}>Logout</button>
             </div>
             <select name="tabMenu" onChange={this.handleChange}>

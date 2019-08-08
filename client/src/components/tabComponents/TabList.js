@@ -3,20 +3,19 @@ import Tab from "./Tab.js"
 
 const TabList = props => {
 
-    const { _id, tabs} = props;
+    const {tabs} = props;
 
-    console.log(tabs)
+    console.log(tabs);
 
     return (
-        <div>{tabs.map(tab => <Tab 
-                key={_id} 
-                tab={tab}
-                {...tab}
-                setWorking={props.setWorking}
-                setDone={props.setDone}
-                deleteTab={props.deleteTab}
-            />)}
-        </div>
+        tabs.map(tab => <Tab 
+                            key={tab._id}
+                            tab={tab}
+                            {...tab}
+                            setWorking={props.setWorking}
+                            setDone={props.setDone}
+                            deleteTab={props.deleteTab}
+                        />)
     )
 }
 
