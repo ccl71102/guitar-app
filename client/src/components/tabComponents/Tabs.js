@@ -30,7 +30,6 @@ class Tabs extends Component {
     getTabsFromAPI = (title) =>{
         axios.get(`http://www.songsterr.com/a/ra/songs.json?pattern=${title}`)
         .then(res => {
-            console.log(res.data);
             this.setState({
                 tabs: res.data.map(tab => 
                     <Tab 
@@ -45,30 +44,30 @@ class Tabs extends Component {
                         deleteTab={this.deleteTab} 
                         setDone={this.setDone}
                     />)
-            }, () => console.log(this.state.tabs))
+            })
         })
         .catch(err => console.log(err));
     }
 
     saveTab = tab => {
-        
+
         tab.status = "new";
-        console.log(tab)
         tokenAxios.post("/api/tabs/", tab)
         .then(res => {
-            console.log(res.data)
+            this.setState({
+                tabs: this.state.tabs.filter(item => Number(tab._tabId) !== Number(item.key))
+            });  
         })
         .catch(err => console.log(err));
     }
 
     setWorking = tab => {
         tab.status = "working";
-        console.log(tab)
         tokenAxios.put(`/api/tabs/${tab._id}`,tab)
         .then(res => {
             this.setState(prevState => ({
                 tabs: prevState.tabs.map(item => item._id === tab._id ? res.data : item)
-            }), this.getTabs("new"))
+            }), this.getTabs("new"));
         })
         .catch(err => {
             console.log(err);
@@ -77,12 +76,11 @@ class Tabs extends Component {
 
     setDone = tab => {
         tab.status = "done";
-        console.log(tab)
         tokenAxios.put(`/api/tabs/${tab._id}`,tab)
         .then(res => {
             this.setState(prevState => ({
                 tabs: prevState.tabs.map(item => item._id === tab._id ? res.data : item)
-            }), this.getTabs("working"))
+            }), this.getTabs("working"));
         })
         .catch(err => {
             console.log(err);
@@ -106,7 +104,7 @@ class Tabs extends Component {
         .then(res => {
             this.setState({
                 tabs: res.data.filter(tab => tab.status === status)
-            })
+            });
         })
         .catch(err => {
             console.log(err);

@@ -22,7 +22,7 @@ const Tab = props => {
 
     return(
         <div className="tab-div" key={_tabId}>
-            <a className="tan tab-title" href={tabUrl}>{title}</a>
+            <a className="tan tab-title" href={tabUrl} target="_blank" rel="noopener noreferrer">{title}</a>
             <p className="tabs-text tab-artist" >{artist}</p>
             <div className="tab-buttons">
                 {getButtons(status)}

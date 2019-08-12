@@ -25,7 +25,7 @@ Markus Spiske: https://unsplash.com/@markusspiske
 const Credits = () => {
     return(
         <div className="credits-div">
-            <p>Credits</p>
+            <p className="credits-title">Credits</p>
             <div>
                 <p>
                     <a href="https://freesound.org/s/441644/">Metronome</a> by <a href="https://freesound.org/people/xtrgamr/">Blake N. "xtrgamr"</a>

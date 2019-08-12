@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tuner from "./Tuner.js";
 import Metronome from "./Metronome.js";
+import fretboard from "../../images/fretboard-sideways.jpg";
 import metronomePath from "../../audio/metronome/metronome.mp3";
 import kickMidPath from "../../audio/drums/bassdrumhihat-mid.mp3";
 import kickShortPath from "../../audio/drums/bassdrumhihat-short.mp3";
@@ -223,12 +224,17 @@ class Tools extends Component {
                 playMetronome={this.playMetronome}
                 stopMetronome={this.stopMetronome}
             />
-            <Tuner
-                {...this.props} 
-                {...this.state} 
-                handleChange={this.handleChange}
-                playString={this.playString}
-            />
+            <div className="tuner-div">
+                <Tuner
+                    {...this.props} 
+                    {...this.state} 
+                    handleChange={this.handleChange}
+                    playString={this.playString}
+                />
+                <div>
+                    <img className="tuner-fretboard" src={fretboard} alt="fretboard"/>
+                </div>
+            </div>
         </div>
     );
    }

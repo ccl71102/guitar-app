@@ -17,7 +17,7 @@ const TabList = props => {
                             setDone={props.setDone}
                             deleteTab={props.deleteTab}
                         />)
-    )
+    );
 }
 
 export default TabList;
