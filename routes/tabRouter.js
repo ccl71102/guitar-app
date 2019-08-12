@@ -2,7 +2,6 @@ const express = require("express");
 const Tab = require("../models/tab.js");
 const tabRouter = express.Router();
 
-
 tabRouter.get("/", (req, res, next) => {
     Tab.find({user: req.user._id}, (err, tabs) => {
         if(err){

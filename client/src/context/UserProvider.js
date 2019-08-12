@@ -9,7 +9,7 @@ class UserProvider extends Component {
         this.state = {
             user: JSON.parse(localStorage.getItem("user")) || {},
             token: localStorage.getItem("token") || ""
-        }
+        };
     }
 
     signup = credentials => {
@@ -24,16 +24,15 @@ class UserProvider extends Component {
                 token
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => alert("Username already exists"));
     }
 
     login = credentials => {
 
         axios.post("/auth/login", credentials)
         .then(res => {
-            console.log(res)
             const {user, token} = res.data;
-            localStorage.setItem("user",JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("token", token);
             this.setState({
                 user,
@@ -49,8 +48,7 @@ class UserProvider extends Component {
         this.setState({
             user: {}, 
             token: ""
-        })
-
+        });
     }
 
     render() {

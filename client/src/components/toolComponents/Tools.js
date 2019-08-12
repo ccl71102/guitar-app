@@ -43,7 +43,18 @@ class Tools extends Component {
     }
 
     handleChange = e => {
+
         const { name, value } = e.target;
+
+        if(name === "bpm") {
+            if(!isNaN(value)){
+                this.setState({
+                    [name]: value
+                }, () => this.saveToLocalStorage());
+            } else {
+                return;
+            }
+        }
 
         this.setState({
             [name]: value
@@ -51,12 +62,17 @@ class Tools extends Component {
     }
 
     changeBPM = value => {
-        if(this.state.bpm >= 220 || this.state.bpm <= 1)
-            return;
 
-        this.setState({
-           bpm: this.state.bpm + value
-        }, () => this.saveToLocalStorage());
+    if(!isNaN(value))
+        if(Number(this.state.bpm) > 220 || Number(value) > 220) {
+            this.setState({
+                bpm: Number(220)
+            }, () => this.saveToLocalStorage());
+        } else {
+            this.setState({
+                bpm: Number(this.state.bpm) + Number(value)
+            }, () => this.saveToLocalStorage());
+        }
     }
 
     playString(noteName){
@@ -116,10 +132,24 @@ class Tools extends Component {
             isPlaying: true
         });
 
+        let bpmCap = Number(this.state.bpm);
+
+        if(bpmCap > 220) {
+            bpmCap = 220;
+            this.setState({
+                bpm: 220
+            });
+        } else if(bpmCap < 1){
+            bpmCap = 1;
+            this.setState({
+                bpm: 1
+            });
+        }
+
         if(this.state.metronome === "Standard"){
 
             let metronome = new Audio(metronomePath);
-            let tempo = Math.floor(1000 / ((this.state.bpm) / 60));
+            let tempo = Math.floor(1000 / ((Number(bpmCap)) / 60));
 
             this.intervalMetronome = setInterval(() => {
                 metronome.play();
@@ -130,14 +160,12 @@ class Tools extends Component {
             let kick = new Audio(kickMidPath);
             let snare = new Audio(snareMidBlastBeatPath);
 
-            if(this.state.bpm > 130){
+            if(bpmCap > 130){
                 kick = new Audio(kickShortPath);
                 snare = new Audio(snareShortBlastBeatPath);
             }
 
-            let tempo = Math.floor(1000 / ((this.state.bpm) / 60))/2;
-
-            console.log(tempo)
+            let tempo = Math.floor(1000 / ((Number(bpmCap)) / 60))/2;
 
             this.intervalBasicBeatKickHiHat = setInterval(() => {
                 kick.play();
@@ -145,10 +173,7 @@ class Tools extends Component {
 
             setTimeout(() => this.intervalBlastBeatSnare = setInterval(() => {
                 snare.play();
-            }, tempo), tempo/2);
-
-            
-            
+            }, tempo), tempo/2);  
         }
 
         if(this.state.metronome === "Basic Beat"){
@@ -156,12 +181,12 @@ class Tools extends Component {
             let kick = new Audio(kickMidPath);
             let snare = new Audio(snareMidPath);
 
-            if(this.state.bpm > 130){
+            if(bpmCap > 150){
                 kick = new Audio(kickShortPath);
                 snare = new Audio(snareShortPath);
             }
 
-            let tempoFirstBeat = Math.floor(1000 / ((this.state.bpm) / 60));
+            let tempoFirstBeat = Math.floor(1000 / ((Number(bpmCap)) / 60));
             let tempoSecondBeat = tempoFirstBeat * 2;
 
             this.intervalBasicBeatKickHiHat = setInterval(() => {
@@ -172,8 +197,6 @@ class Tools extends Component {
                 snare.play();
             }, tempoSecondBeat);
         }
-
-        
     }
 
     stopMetronome = () => {
@@ -192,12 +215,6 @@ class Tools extends Component {
 
     return (
         <div className="tools-container">
-            <Tuner
-                {...this.props} 
-                {...this.state} 
-                handleChange={this.handleChange}
-                playString={this.playString}
-            />
             <Metronome               
                 {...this.props} 
                 {...this.state} 
@@ -205,6 +222,12 @@ class Tools extends Component {
                 changeBPM={this.changeBPM}
                 playMetronome={this.playMetronome}
                 stopMetronome={this.stopMetronome}
+            />
+            <Tuner
+                {...this.props} 
+                {...this.state} 
+                handleChange={this.handleChange}
+                playString={this.playString}
             />
         </div>
     );

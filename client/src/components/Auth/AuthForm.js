@@ -7,18 +7,20 @@ const AuthForm = props => {
     return(
         <form onSubmit={handleSubmit}>
             <input 
+                className="auth-input"
                 placeholder="Username" 
                 onChange={handleChange}
                 name="username"
                 value={username}
             />            
             <input 
+                className="auth-input"
                 placeholder="Password" 
                 onChange={handleChange}
                 name="password"
                 value={password}
             />
-            <button>{btnText}</button>
+            <button className="button">{btnText}</button>
         </form>
     )
 

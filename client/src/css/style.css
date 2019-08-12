@@ -1,5 +1,29 @@
+
+/* ##GLOBAL */
+
 * {
     font-family: Roboto, sans-serif;
+}
+
+body {
+    background: url("../images/fretboard.jpeg");
+    background-repeat: no-repeat;
+}
+
+.button {
+    font-size: 18px;
+    color: #f5f2f0;
+    border: 1px solid rgb(20,20,20);
+    background-color: #302e2d;
+    border-radius: 2px;
+}
+
+.dropdown {
+    font-size: 18px;
+}
+
+.button:hover {
+    cursor: pointer;
 }
 
 /* ##FONTS */
@@ -15,11 +39,6 @@
     font-weight: bold;
 }
 
-body {
-    background: url("../images/fretboard.jpeg");
-    background-repeat: no-repeat;
-}
-
 /* ##NAVBAR */
 
 #navbar {
@@ -31,7 +50,8 @@ body {
 
 #navbar > a {
     text-decoration: none;
-    color: white;
+    color: #f5f2f0;
+    font-size: 20px;
 }
 
 /* ##TOOLS */
@@ -48,7 +68,7 @@ body {
 
 .tuner-container > p {
     margin-left: 10px;
-    color: white;
+    color: #f5f2f0;
     font-weight: bold;
     font-size: 20px;
 }
@@ -70,14 +90,9 @@ body {
 
 /* ##METRONOME */
 
-.metronome-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
-}
-
 .metronome-container > p {
     margin-left: 10px;
-    color: white;
+    color: #f5f2f0;
     font-weight: bold;
     font-size: 20px;
 }
@@ -87,7 +102,6 @@ body {
     width: 140px;
     margin-bottom: 20px;
     font-size: 16px;
-    grid-column: 1 / 7;
 }
 
 .metronome-container > input {
@@ -95,7 +109,6 @@ body {
     width: 40px;
     margin-bottom: 20px;
     font-size: 16px;
-    grid-column: 1 / 2;
 }
 
 .metronome-container > button {
@@ -104,10 +117,96 @@ body {
     height: 30px;
     border-radius: 5px;
     font-size: 16px;
-    grid-column: 1 / 7;
 }
 
 .metronome-icon {
-    color: white;
-    font-size: 22px;
+    color: #f5f2f0;
+    font-size: 26px;
+    margin-left: 10px;
+}
+
+/* ##AUTH*/
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.auth-input {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* ##TABS */
+
+.tabs-text {
+    color: #f5f2f0;
+}
+
+.tabs-title {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.tabs-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(100, 100, 100, 0.6);
+    width: 400px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-button {
+    margin-left: 10px;
+}
+
+.tab-form-input {
+    font-size: 18px;
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.tab-title {
+    font-size: 26px;
+}
+
+.tab-artist {
+    font-size: 20px;
+}
+
+/* ##CREDITS */
+
+.credits-div {
+    color: #f5f2f0;
+}
+
+.credits-div > div > p > a {
+    color: #d9c8b8;
+    text-decoration: none;
+}
+
+.tan {
+    color: #d9c8b8;
+}
+
+.tan:hover {
+    color: #d6b89c;
+    cursor: pointer;
 }

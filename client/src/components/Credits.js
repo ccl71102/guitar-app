@@ -24,7 +24,7 @@ Markus Spiske: https://unsplash.com/@markusspiske
 
 const Credits = () => {
     return(
-        <div>
+        <div className="credits-div">
             <p>Credits</p>
             <div>
                 <p>
@@ -54,6 +54,11 @@ const Credits = () => {
             <div>
                 <p>
                     <span>Guitar</span> by <a href="https://colonlopezcarlos.surge.sh/">Carlos Colon</a>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <a href="https://www.songsterr.com/a/wa/api/">External API</a> by <a href="https://www.songsterr.com">Songsterr</a>
                 </p>
             </div>
         </div>

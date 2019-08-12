@@ -44,8 +44,8 @@ class Auth extends Component {
 
     render(){
         return(
-            <div>
-                {!this.state.isToggled ?
+            <div className="auth-form">
+                {this.state.isToggled ?
                 <>
                     <AuthForm
                         username={this.state.username}
@@ -54,7 +54,7 @@ class Auth extends Component {
                         handleSubmit={this.handleSignup}
                         btnText="Sign Up"
                     />
-                    <p onClick={this.toggler}>Have an account? Click here to login instead.</p>
+                    <p className="tabs-text">Have an account? Click <span className="tan" onClick={this.toggler}>here</span> to login instead.</p>
                 </>
                 :
                 <>
@@ -65,7 +65,7 @@ class Auth extends Component {
                         handleSubmit={this.handleLogin}
                         btnText="Login"
                     />
-                    <p onClick={this.toggler}>New user? Click here to create an account.</p>
+                    <p className="tabs-text">New user? Click <span className="tan" onClick={this.toggler}>here</span> to create an account.</p>
                 </>}
             </div>
         )

@@ -3,7 +3,7 @@ import Tab from "./Tab.js"
 
 const TabList = props => {
 
-    const {tabs} = props;
+    const { tabs } = props;
 
     console.log(tabs);
 
@@ -12,6 +12,7 @@ const TabList = props => {
                             key={tab._id}
                             tab={tab}
                             {...tab}
+                            saveTab={props.saveTab}
                             setWorking={props.setWorking}
                             setDone={props.setDone}
                             deleteTab={props.deleteTab}
