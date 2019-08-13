@@ -55,6 +55,7 @@ class Auth extends Component {
                         btnText="Sign Up"
                     />
                     <p className="tabs-text">Have an account? Click <span className="tan" onClick={this.toggler}>here</span> to login instead.</p>
+                    <p className="tabs-text">{this.props.authErrMsg}</p>
                 </>
                 :
                 <>
@@ -66,6 +67,7 @@ class Auth extends Component {
                         btnText="Login"
                     />
                     <p className="tabs-text">New user? Click <span className="tan" onClick={this.toggler}>here</span> to create an account.</p>
+                    <p className="tabs-text">{this.props.authErrMsg}</p>
                 </>}
             </div>
         )
