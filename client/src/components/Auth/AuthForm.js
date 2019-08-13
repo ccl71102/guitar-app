@@ -18,6 +18,7 @@ const AuthForm = props => {
                 onChange={handleChange}
                 name="username"
                 value={username}
+                required
             />            
             <input 
                 type="password"
@@ -26,6 +27,7 @@ const AuthForm = props => {
                 onChange={handleChange}
                 name="password"
                 value={password}
+                required
             />
             <button className="button">{btnText}</button>
         </form>
