@@ -28,7 +28,7 @@ class Tabs extends Component {
     }
 
     getTabsFromAPI = (title) =>{
-        axios.get(`http://www.songsterr.com/a/ra/songs.json?pattern=${title}`)
+        axios.get(`https://www.songsterr.com/a/ra/songs.json?pattern=${title}`)
         .then(res => {
             this.setState({
                 tabs: res.data.map(tab => 
@@ -37,7 +37,7 @@ class Tabs extends Component {
                         title={tab.title} 
                         artist={tab.artist.name}
                         _tabId={tab.id}
-                        tabUrl={`http://www.songsterr.com/a/wa/song?id=${tab.id}`} 
+                        tabUrl={`https://www.songsterr.com/a/wa/song?id=${tab.id}`} 
                         status={"found"} 
                         saveTab={this.saveTab} 
                         setWorking={this.setWorking} 
