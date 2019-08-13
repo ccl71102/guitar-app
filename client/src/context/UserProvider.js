@@ -66,7 +66,8 @@ class UserProvider extends Component {
                 ...this.state,
                 signup: this.signup,
                 login: this.login,
-                logout: this.logout
+                logout: this.logout,
+                handleAuthError: this.handleAuthError
             }}>
                 {this.props.children}
             </UserContext.Provider>

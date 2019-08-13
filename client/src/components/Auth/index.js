@@ -14,7 +14,7 @@ class Auth extends Component {
 
     toggler = () => this.setState(prevState => ({
         isToggled: !prevState.isToggled
-    }));
+    }),() => this.props.handleAuthError(""));
 
     handleChange = e => {
         const {name, value} = e.target;
