@@ -54,6 +54,7 @@ authRouter.post("/login", (req, res, next) => {
         //check if the passwords match
 
         user.checkPassword(req.body.password, (err, isMatch) => {
+
             if(err) {
                 res.status(401);
                 return next(err);
@@ -63,14 +64,16 @@ authRouter.post("/login", (req, res, next) => {
                 res.status(401);
                 return next(new Error("Username or password are incorrect"));
             }
+
+                //create token
+
+                const token = jwt.sign(user.withoutPassword(), process.env.SECRET);
+
+                //send user object and token
+                return res.status(200).send({token, user: user.withoutPassword()});
         })
 
-        //create token
 
-        const token = jwt.sign(user.withoutPassword(), process.env.SECRET);
-
-        //send user object and token
-        return res.status(200).send({token, user: user.withoutPassword()});
     });
 });
 

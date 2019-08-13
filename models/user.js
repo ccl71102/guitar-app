@@ -43,7 +43,7 @@ userSchema.methods.checkPassword = function(passwordAttempt, callback){
 
 //remove password before sending to front end
 userSchema.methods.withoutPassword = function() {
-    const user = this.toObject()
+    const user = this.toObject();
     delete user.password;
     return user;
 }

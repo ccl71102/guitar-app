@@ -8,23 +8,30 @@ class UserProvider extends Component {
         super();
         this.state = {
             user: JSON.parse(localStorage.getItem("user")) || {},
-            token: localStorage.getItem("token") || ""
+            token: localStorage.getItem("token") || "",
+            authErrMsg: ""
         };
+    }
+
+    handleAuthError = errMsg => {
+        this.setState({
+            authErrMsg: errMsg
+        });
     }
 
     signup = credentials => {
         axios.post("/auth/signup", credentials)
         .then(res => {
-            console.log(res)
             const {user, token} = res.data;
-            localStorage.setItem("user",JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("token", token);
             this.setState({
                 user,
-                token
+                token,
+                authErrMsg: ""
             });
         })
-        .catch(err => alert("Username already exists"));
+        .catch(err => this.handleAuthError(err.response.data.errorMessage));
     }
 
     login = credentials => {
@@ -36,10 +43,11 @@ class UserProvider extends Component {
             localStorage.setItem("token", token);
             this.setState({
                 user,
-                token
+                token,
+                authErrMsg: ""
             });
         })
-        .catch(err => console.log(err));
+        .catch(err => this.handleAuthError(err.response.data.errorMessage));
 
     }
     logout = () => {
@@ -47,7 +55,8 @@ class UserProvider extends Component {
         localStorage.removeItem("token");
         this.setState({
             user: {}, 
-            token: ""
+            token: "",
+            authErrMsg: ""
         });
     }
 
