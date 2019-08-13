@@ -5,8 +5,6 @@ const TabList = props => {
 
     const { tabs } = props;
 
-    console.log(tabs);
-
     return (
         tabs.map(tab => <Tab 
                             key={tab._id}

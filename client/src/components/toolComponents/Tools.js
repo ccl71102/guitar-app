@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Tuner from "./Tuner.js";
 import Metronome from "./Metronome.js";
 import fretboard from "../../images/fretboard-sideways.jpg";
+import fretboard7String from "../../images/fretboard-sideways-7string.png"
+import fretboard8String from "../../images/fretboard-sideways-8string.png"
 import metronomePath from "../../audio/metronome/metronome.mp3";
 import kickMidPath from "../../audio/drums/bassdrumhihat-mid.mp3";
 import kickShortPath from "../../audio/drums/bassdrumhihat-short.mp3";
@@ -212,6 +214,31 @@ class Tools extends Component {
         });
     }
 
+    getFret = () => {
+        const { tuning } = this.state;
+
+        if(tuning === "E Standard" || tuning === "Dropped D") {
+            return {
+                        fretboard, 
+                        style: "tuner-fretboard"
+                    };
+        }
+        
+        if(tuning === "E Standard (7 String)" || tuning === "Dropped A (7 String)") {
+            return {
+                        fretboard: fretboard7String,
+                        style: "tuner-fretboard-7string"
+                    };
+        }
+
+        if(tuning === "E Standard (8 String)"){
+            return {
+                        fretboard: fretboard8String,
+                        style: "tuner-fretboard-8string"
+                    };
+        }
+    }
+
    render() {
 
     return (
@@ -232,7 +259,7 @@ class Tools extends Component {
                     playString={this.playString}
                 />
                 <div>
-                    <img className="tuner-fretboard" src={fretboard} alt="fretboard"/>
+                    <img className={this.getFret().style} src={this.getFret().fretboard} alt="fretboard"/>
                 </div>
             </div>
         </div>

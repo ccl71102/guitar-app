@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar.js";
 import Tools from "./components/toolComponents/Tools.js";
 import Tabs from "./components/tabComponents/Tabs.js";
 import Credits from "./components/Credits.js";
-import Footer from "./components/Footer.js";
 
 const Scroll = withRouter(ScrollToTop);
 
@@ -17,7 +16,7 @@ const App = props => {
 
   return (
   <div>
-    <div className="transparent-wrapper">
+    <div>
       <Navbar/>
       <Switch>
         <Scroll>
@@ -28,7 +27,6 @@ const App = props => {
           <Route path = "/credits" render={routerProps => <Credits {...routerProps} {...props}/>}/>
         </Scroll>
       </Switch>
-      <Footer/>
     </div>
   </div>
   );

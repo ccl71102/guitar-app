@@ -10,7 +10,7 @@ body {
     background: url("../images/fretboard.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 120vh;
 }
 
 .button {
@@ -34,6 +34,15 @@ body {
     filter: grayscale(10%);
 }
 
+.tan {
+    color: #d9c8b8;
+}
+
+.tan:hover {
+    color: #d6b89c;
+    cursor: pointer;
+}
+
 /* ##FONTS */
 
 @font-face {
@@ -51,15 +60,35 @@ body {
 
 #navbar {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    position: sticky; /* fixed isn't working for some reason :| */
+    position: -webkit-sticky;
+    top: 0;
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 20px;
+    z-index: 100;
+    background-image: linear-gradient(#2e2c29,#1f1e1c);
+    min-width: 320px;
 }
 
 #navbar > a {
     text-decoration: none;
     color: #f5f2f0;
     font-size: 20px;
+    transition: color 300ms linear 50ms;
+}
+
+#navbar > a:active {
+    font-weight: bold;
+    font-size: 22px;
+    transition: color 300ms linear 50ms;
+}
+
+#navbar > a:hover {
+    color: #d6b89c;
+    transition: color 300ms linear 50ms;
 }
 
 /* ##TOOLS */
@@ -67,28 +96,47 @@ body {
 .tools-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
 }
-
-
 
 /* ##TUNER */
 
 .tuner-div {
     display: flex;
     flex-direction: row;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
 }
 
 .tuner-fretboard {
-    margin-left: 30px;
     margin-top: 110px;
     height: 300px;
-    filter: grayscale(70%);
+    width: 110px;
+    filter: grayscale(70%) brightness(0.9) saturate(40%);
+    border-radius: 2px;
+}
+
+.tuner-fretboard-7string {
+    margin-top: 120px;
+    height: 350px;
+    width: 110px;
+    filter: grayscale(50%) brightness(0.95) saturate(30%) contrast(160%);
+    border-radius: 2px;
+}
+
+.tuner-fretboard-8string {
+    margin-top: 120px;
+    height: 410px;
+    width: 110px;
+    filter: grayscale(50%) brightness(0.7) saturate(30%) contrast(160%);
+    border-radius: 2px;
 }
 
 .tuner-container {
     display: grid;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 100px;
 }
 
 .tuner-container > p {
@@ -107,13 +155,21 @@ body {
 
 .tuner-container > button {
     margin: 10px;
-    width: 36px;
-    height: 30px;
+    width: 42px;
+    height: 33px;
     border-radius: 5px;
     font-size: 16px;
 }
 
 /* ##METRONOME */
+
+.metronome-container {
+    margin-top: 40px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    height: 50px;
+    width: 200px;
+}
 
 .metronome-container > p {
     margin-left: 10px;
@@ -149,7 +205,7 @@ body {
 .metronome-icon {
     color: #f5f2f0;
     font-size: 26px;
-    margin-left: 10px;
+    margin-left: 22px;
 }
 
 /* ##AUTH*/
@@ -162,9 +218,14 @@ body {
     flex-wrap: wrap;
 }
 
+.auth-form > button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .auth-input {
     font-size: 18px;
-    margin-right: 10px;
+    margin-top: 5px;
 }
 
 /* ##TABS */
@@ -184,16 +245,42 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 40px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.tabs-logout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+
+.tabs-logout > button {
+    margin-left: 12px;
+}
+
+.tabs-dropdown-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .tab-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgba(100, 100, 100, 0.6);
+    background-color: rgba(40, 36, 34, 0.7);
     width: 300px;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .tab-buttons {
@@ -203,6 +290,10 @@ body {
 
 .tab-button {
     margin-left: 10px;
+}
+
+.tabs-username {
+    color: #d6b89c;
 }
 
 .tab-form-input {
@@ -223,14 +314,28 @@ body {
 
 .credits-div {
     color: #f5f2f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     font-size: 18px;
+    width: 100%;
+}
+
+.credits-div > div {
+    grid-column: 2 / 3;
+    justify-self: center;
+    background-color: rgba(40, 36, 34, 0.7);
+    width: 300px;
+    padding-left: 20px;
+}
+
+.credits-div > div > p {
+    margin-left: 10px;
 }
 
 .credits-title {
     font-size: 30px;
+    grid-column: 2 / 3;
+    justify-self: center;
 }
 
 .credits-div > div > p > a {
@@ -238,11 +343,70 @@ body {
     text-decoration: none;
 }
 
-.tan {
-    color: #d9c8b8;
+
+
+@media only screen and (min-width: 400px){
+
+    .tuner-container{
+        width: 110px;
+    }
+
+    .tuner-fretboard {
+        width: 130px;
+    }
+
+    .tuner-fretboard-7string {
+        width: 130px;
+    }
+
+    .tuner-fretboard-8string {
+        width: 130px;
+    }
 }
 
-.tan:hover {
-    color: #d6b89c;
-    cursor: pointer;
+@media only screen and (min-width: 500px){
+
+    .tuner-container{
+        width: 120px;
+    }
+
+    .tuner-fretboard {
+        width: 200px;
+    }
+
+    .metronome-container {
+        width: 200px;
+    }
+
+    .tuner-fretboard-7string {
+        width: 200px;
+    }
+
+    .tuner-fretboard-8string {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width: 800px){
+
+    .tuner-container{
+        width: 150px;
+    }
+
+    #navbar {
+        justify-content: flex-end;
+    }
+
+    #navbar > a {
+        margin-right: 20px;
+    }
+    
+}
+
+@media only screen and (min-width: 1000px){
+    
+}
+
+@media only screen and (min-width: 1200px){
+    
 }

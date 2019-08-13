@@ -2,13 +2,29 @@ import React from "react";
 
 const Tab = props => {
 
-    const {_id, title, artist, _tabId, tabUrl, status, saveTab, setWorking, deleteTab, setDone} = props;
+    const {
+            _id, 
+            title, 
+            artist, 
+            _tabId, 
+            tabUrl, 
+            status, 
+            saveTab, 
+            setWorking, 
+            deleteTab, 
+            setDone
+        } = props;
 
     const getButtons = status => {
         switch(status) {
             case "found":
                 return <button className="button" onClick={() => saveTab({
-                    title, artist, _tabId, tabUrl, status})}>Save</button>
+                            title, 
+                            artist, 
+                            _tabId, 
+                            tabUrl, 
+                            status
+                        })}>Save</button>
             case "new": 
                 return <button className="button" onClick={() => setWorking(props.tab)}>Mark As In Progress</button>
             case "working":
@@ -26,10 +42,14 @@ const Tab = props => {
             <p className="tabs-text tab-artist" >{artist}</p>
             <div className="tab-buttons">
                 {getButtons(status)}
-                { status === "found" ? "" : <button className="button tab-button" onClick={() => deleteTab(_id, status)}>Delete</button>}
+                { status === "found" ? "" : <button 
+                                                    className="button tab-button" 
+                                                    onClick={() => deleteTab(_id, status)}>
+                                                        Delete
+                                            </button> }
             </div>
         </div>
-    )
+    );
 }
 
 export default Tab;

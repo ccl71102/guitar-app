@@ -115,7 +115,6 @@ class Tabs extends Component {
         const { name, value } = e.target;
 
         if(name === "tabMenu") {
-
             if(value !== "search") {
                 this.setState({
                     [name]: value
@@ -126,8 +125,6 @@ class Tabs extends Component {
                     tabs: []
                 }, () => this.getTabs(value));
             }
-
-
         } else {
             this.setState({
                 [name]: value
@@ -180,17 +177,20 @@ class Tabs extends Component {
     render(){
         return(
         <div>
-            <div>
-                <p className="tabs-text tabs-title">Welcome, {JSON.parse(localStorage.getItem("user")).username}</p>
+            <div className="tabs-logout">
+                <p className="tabs-text tabs-title">Welcome, <span className="tabs-username">{JSON.parse(localStorage.getItem("user")).username}</span></p>
                 <button className="button" onClick={this.logout}>Logout</button>
             </div>
-            <div className="tabs-list">
+            <div className="tabs-dropdown-menu">
                 <select className="dropdown" name="tabMenu" onChange={this.handleChange}>
                     <option value="search">Search</option>
                     <option value="new">New Tabs</option>
                     <option value="working">Tabs In Progress</option>
                     <option value="done">Finished Tabs</option>
                 </select> 
+            </div>
+            <div className="tabs-list">
+                
                 {
                     this.loadForm()           
                 }
