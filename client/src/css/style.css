@@ -137,6 +137,7 @@ body {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     width: 100px;
+    z-index: 5;
 }
 
 .tuner-container > p {
