@@ -142,10 +142,10 @@ class Tools extends Component {
             this.setState({
                 bpm: 220
             });
-        } else if(bpmCap < 1){
-            bpmCap = 1;
+        } else if(bpmCap < 10){
+            bpmCap = 10;
             this.setState({
-                bpm: 1
+                bpm: 10
             });
         }
 
