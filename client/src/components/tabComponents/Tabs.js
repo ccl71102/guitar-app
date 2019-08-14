@@ -183,7 +183,7 @@ class Tabs extends Component {
             </div>
             <div className="tabs-dropdown-menu">
                 <select className="dropdown" name="tabMenu" onChange={this.handleChange}>
-                    <option value="search">Search</option>
+                    <option value="search">Search Tabs</option>
                     <option value="new">New Tabs</option>
                     <option value="working">Tabs In Progress</option>
                     <option value="done">Finished Tabs</option>
