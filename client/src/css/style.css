@@ -76,20 +76,18 @@ body {
     min-width: 320px;
 }
 
-#navbar > a {
+.navlink {
     text-decoration: none;
     color: #f5f2f0;
     font-size: 20px;
     transition: color 300ms linear 50ms;
 }
 
-#navbar > a:active {
-    font-weight: bold;
-    font-size: 22px;
-    transition: color 300ms linear 50ms;
+.active {
+    color: #f0c9a5;
 }
 
-#navbar > a:hover {
+.navlink:hover {
     color: #d6b89c;
     transition: color 300ms linear 50ms;
 }
