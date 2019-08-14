@@ -28,6 +28,11 @@ const Credits = () => {
             <p className="credits-title">Credits</p>
             <div>
                 <p>
+                    <span>Website, Guitar</span> by <a href="https://colonlopezcarlos.surge.sh/">Carlos Colon</a>
+                </p>
+            </div>
+            <div>
+                <p>
                     <a href="https://freesound.org/s/441644/">Metronome</a> by <a href="https://freesound.org/people/xtrgamr/">Blake N. "xtrgamr"</a>
                 </p>
             </div>
@@ -49,11 +54,6 @@ const Credits = () => {
             <div>
                 <p>
                     <a href="https://unsplash.com/photos/1Pzhr6XPl6k">Background</a> by <a href="https://unsplash.com/@derekstory">Derek Story</a>
-                </p>
-            </div>
-            <div>
-                <p>
-                    <span>Guitar</span> by <a href="https://colonlopezcarlos.surge.sh/">Carlos Colon</a>
                 </p>
             </div>
             <div>

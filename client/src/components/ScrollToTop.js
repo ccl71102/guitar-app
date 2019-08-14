@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 const ScrollToTop = props => {
 
     useEffect(()=> {
-            window.scrollTo(0,0);  
+            window.scrollTo(0,0); 
         }, [props.location]);
 
     return props.children;
